@@ -38,6 +38,12 @@ class App extends Component {
           date={this.state.date}
           onDateChange={date => {
             const computerDate = getComputerMove(date);
+
+            // check date validity
+
+            // check if player got 31.12.2018
+            // check if computer got 31.12.2018
+
             this.setState({date, computerDate})
           }}
         />
