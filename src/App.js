@@ -13,7 +13,8 @@ class App extends Component {
   state = {
     date: moment(new Date((new Date()).getFullYear(), 0, 1)),
     computerDate: null,
-    focused: false
+    focused: false,
+    moves: []
   }
 
   newGame = () => {
@@ -48,11 +49,17 @@ class App extends Component {
             } else if (computerDate.isSame(moment('2018-12-31'))) {
               console.log('computer won');
             }
+            date.playerMove = true;
 
-
-            this.setState({date, computerDate})
+            this.setState({date, computerDate, moves: [...this.state.moves, date, computerDate]});
+            console.log(this.state.moves);
           }}
         />
+
+
+        <h3>Tietokoneen viimeisin valinta</h3>
+        <p>{this.state.computerDate && this.state.computerDate.format('D.M.Y').toString()}</p>
+
         <button onClick={this.newGame} className="button">Uusi peli</button>
       </div>
     );
