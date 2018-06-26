@@ -43,6 +43,12 @@ class App extends Component {
 
             // check if player got 31.12.2018
             // check if computer got 31.12.2018
+            if (date.isSame(moment('2018-12-31'))) {
+              console.log('player won');
+            } else if (computerDate.isSame(moment('2018-12-31'))) {
+              console.log('computer won');
+            }
+
 
             this.setState({date, computerDate})
           }}
